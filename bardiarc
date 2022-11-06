@@ -1,0 +1,89 @@
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+alias profile="nano ~/.bardiarc"
+alias re="source ~/.bardiarc"
+
+alias e="exit"
+
+# Some Basics
+alias d="cd ~/Desktop"
+alias g="cd ~/Documents/GitLab"
+alias n="touch newfile"
+alias docs="cd /home/bardia/Documents"
+alias t="python test.py"
+
+# Git
+alias s="git status"
+alias master="git checkout master"
+alias sl="git stash list"
+alias ss="git stash save"
+alias sa="git stash apply"
+alias sp="git stash pop"
+
+# General Coding
+alias temp="code /home/bardia/Documents/temp/temp.py; exit"
+
+# Virtualenv
+source /home/${USER}/.local/bin/virtualenvwrapper.sh
+
+# Git Prompt
+source ~/git-prompt.sh
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u:\[\033[01;34m\]\W\[\033[01;33m\]$(__git_ps1 "(%s)")\[\033[00m\]\$ '
+source /usr/share/bash-completion/completions/git
+
+# Python
+alias test="workon test"
+alias pep="autopep8 -a -a --in-place *.py"
+alias pep?="pycodestyle . --ignore E501"
+alias f8="autoflake --in-place --remove-all-unused-imports *.py"
+alias f8?="flake8"
+alias pp="pep; f8"
+alias pp?="pep?; f8?"
+alias pl="python pledge.py"
+alias tr="python turn.py"
+alias pr="python prestige.py"
+
+# Docker
+alias alpine="docker run --rm -it alpine"
+
+# Docker Compose
+alias up="docker-compose up --build -d; logs"
+alias upb="docker-compose up --build -d; logs"
+alias down="docker-compose down --remove-orphans"
+alias dup="down; up"
+alias logs="docker-compose logs -f"
+alias dps="docker-compose ps"
+alias posh="docker-compose exec poi python manage.py shell"
+alias pox="docker-compose exec poi /bin/bash"
+alias pomm="docker-compose exec poi python manage.py makemigrations"
+alias pom="docker-compose exec poi python manage.py migrate"
+alias pinish="docker-compose run --rm -v $(pwd)/samples:/tmp poidb psql -h poidb -U postgres -d poi -f /tmp/poi_sample_data.sql && docker-compose exec poi python manage.py createsuperuser"
+
+#Shadowsocks
+alias socks="ss-local -c ~/shadowsocks.json"
+
+dex (){
+    docker-compose exec $1 /bin/bash
+}
+
+
+# Go
+gr() {
+  go build $1 && ./${1%.go}
+}
+
+# Kubernetes
+alias k=kubectl
+alias kp="kubectl get pods"
+alias kd="kubectl get deployments"
+alias ks="kubectl get services"
+alias ka="kubectl apply -f"
+alias kdel="kubectl delete"
+alias kdes="kubectl describe"
+
+note() {
+ nano ~/$1
+}
+
+alias todo="mynote todo"
+
