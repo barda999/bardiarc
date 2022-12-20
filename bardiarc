@@ -23,9 +23,6 @@ alias sp="git stash pop"
 # General Coding
 alias temp="code /home/bardia/Documents/temp/temp.py; exit"
 
-# Virtualenv
-source /home/${USER}/.local/bin/virtualenvwrapper.sh
-
 # Git Prompt
 source ~/git-prompt.sh
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u:\[\033[01;34m\]\W\[\033[01;33m\]$(__git_ps1 "(%s)")\[\033[00m\]\$ '
@@ -58,9 +55,6 @@ alias pox="docker-compose exec poi /bin/bash"
 alias pomm="docker-compose exec poi python manage.py makemigrations"
 alias pom="docker-compose exec poi python manage.py migrate"
 alias pinish="docker-compose run --rm -v $(pwd)/samples:/tmp poidb psql -h poidb -U postgres -d poi -f /tmp/poi_sample_data.sql && docker-compose exec poi python manage.py createsuperuser"
-
-#Shadowsocks
-alias socks="ss-local -c ~/shadowsocks.json"
 
 dex (){
     docker-compose exec $1 /bin/bash
