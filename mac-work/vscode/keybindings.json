@@ -1,0 +1,23 @@
+[
+    {
+        "args": {
+            "text": "\u0001"
+        }, // Ctrl+A
+        "command": "workbench.action.terminal.sendSequence",
+        "key": "home",
+        "when": "terminalFocus"
+    },
+    {
+        "args": {
+            "text": "\u0005"
+        }, // Ctrl+E
+        "command": "workbench.action.terminal.sendSequence",
+        "key": "end",
+        "when": "terminalFocus"
+    },
+    {
+        "args": "/Users/bardiazamanian/Documents/Notes/daily.md",
+        "command": "vscode.open",
+        "key": "cmd+d"
+    }
+]
